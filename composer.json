@@ -20,6 +20,8 @@
         "aws/aws-sdk-php": "^3.336",
         "laravel-zero/framework": "^11.36.1",
         "mongodb/mongodb": "^1.20",
+        "nunomaduro/termwind": "^2.3",
+        "php-school/cli-menu": "^4.3",
         "spatie/db-dumper": "^3.7",
         "symfony/process": "^7.2"
     },
