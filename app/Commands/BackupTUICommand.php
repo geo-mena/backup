@@ -128,6 +128,7 @@ class BackupTUICommand extends Command
             ->addItem('Back to Main Menu', function (CliMenu $menu) {
                 $menu->close();
             })
+            ->setExitButtonText('EXIT')
             ->build();
 
         return $configMenu->open();
