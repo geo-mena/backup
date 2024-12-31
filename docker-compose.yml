@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+    networks:
+      - backup-network
+    tty: true
+
+networks:
+  backup-network:
+    driver: bridge
