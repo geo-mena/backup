@@ -40,7 +40,7 @@ class BackupTUICommand extends Command
             ->setMarginAuto()
             ->setBackgroundColour('17')
             ->setForegroundColour('136')
-            ->setTitleSeparator('-')
+            ->setTitleSeparator('━')
             ->addLineBreak()
             ->modifySelectableStyle(function ($style) {
                 $style->setSelectedMarker('↳')
@@ -59,7 +59,7 @@ class BackupTUICommand extends Command
             ->addStaticItem('Select your database type:')
             ->addLineBreak('-')
             ->addLineBreak()
-            ->addItem('MySQL Database', function (CliMenu $menu) {
+            ->addItem(' MySQL Database', function (CliMenu $menu) {
                 $this->config['type'] = 'mysql';
                 $this->config['port'] = 3306;
                 $this->showConfigMenu($menu);
@@ -92,7 +92,7 @@ class BackupTUICommand extends Command
             ->setMarginAuto()
             ->setBackgroundColour('17')
             ->setForegroundColour('136')
-            ->setTitleSeparator('-')
+            ->setTitleSeparator('━')
             ->modifySelectableStyle(function ($style) {
                 $style->setSelectedMarker('↳')
                     ->setUnselectedMarker(' ');
@@ -107,25 +107,25 @@ class BackupTUICommand extends Command
             ->addStaticItem('Select an option to modify:')
             ->addLineBreak('-')
             ->addLineBreak()
-            ->addItem('Connection Settings', function (CliMenu $menu) {
+            ->addItem(' Connection Settings', function (CliMenu $menu) {
                 $this->configureConnection($menu);
             })
-            ->addItem('Database Settings', function (CliMenu $menu) {
+            ->addItem(' Database Settings', function (CliMenu $menu) {
                 $this->configureDatabase($menu);
             })
-            ->addItem('Output Settings', function (CliMenu $menu) {
+            ->addItem(' Output Settings', function (CliMenu $menu) {
                 $this->configureOutput($menu);
             })
             ->addLineBreak()
             ->addLineBreak('-')
-            ->addItem('Start Backup', function (CliMenu $menu) use ($parentMenu) {
+            ->addItem(' Start Backup', function (CliMenu $menu) use ($parentMenu) {
                 if ($this->validateConfig()) {
                     $menu->close();
                     $parentMenu->close();
                     $this->executeBackup();
                 }
             })
-            ->addItem('Back to Main Menu', function (CliMenu $menu) {
+            ->addItem(' Back to Main Menu', function (CliMenu $menu) {
                 $menu->close();
             })
             ->setExitButtonText('EXIT')
