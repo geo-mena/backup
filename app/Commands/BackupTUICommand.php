@@ -59,23 +59,23 @@ class BackupTUICommand extends Command
             ->addStaticItem('Select your database type:')
             ->addLineBreak('-')
             ->addLineBreak()
-            ->addItem('🐬 MySQL Database', function (CliMenu $menu) {
+            ->addItem(' MySQL Database', function (CliMenu $menu) {
                 $this->config['type'] = 'mysql';
                 $this->config['port'] = 3306;
                 $this->showConfigMenu($menu);
             })
-            ->addItem('🐘 PostgreSQL Database', function (CliMenu $menu) {
+            ->addItem(' PostgreSQL Database', function (CliMenu $menu) {
                 $this->config['type'] = 'postgres';
                 $this->config['port'] = 5432;
                 $this->showConfigMenu($menu);
             })
-            ->addItem('🍃 MongoDB Database', function (CliMenu $menu) {
+            ->addItem(' MongoDB Database', function (CliMenu $menu) {
                 $this->config['type'] = 'mongodb';
                 $this->config['port'] = 27017;
                 $this->showConfigMenu($menu);
             })
             ->addLineBreak()
-            ->setExitButtonText('❌ EXIT')
+            ->setExitButtonText('EXIT')
             ->build();
 
         return $menu->open();
@@ -86,7 +86,7 @@ class BackupTUICommand extends Command
         $statusItems = $this->getConfigStatus();
 
         $configMenu = (new CliMenuBuilder)
-            ->setTitle("⚙️ Configure {$this->config['type']} Backup")
+            ->setTitle("Configure {$this->config['type']} Backup")
             ->setWidth(80)
             ->setPadding(2, 4)
             ->setMarginAuto()
@@ -97,30 +97,35 @@ class BackupTUICommand extends Command
                 $style->setSelectedMarker('↳')
                     ->setUnselectedMarker(' ');
             })
+            ->addLineBreak()
             ->addStaticItem('Current Configuration:')
+            ->addStaticItem('----------------------')
             ->addLineBreak()
             ->addStaticItem($statusItems)
             ->addLineBreak()
+            ->addLineBreak('-')
             ->addStaticItem('Select an option to modify:')
+            ->addLineBreak('-')
             ->addLineBreak()
-            ->addItem('🚀 ' . 'Connection Settings', function (CliMenu $menu) {
+            ->addItem('Connection Settings', function (CliMenu $menu) {
                 $this->configureConnection($menu);
             })
-            ->addItem('📦 ' . 'Database Settings', function (CliMenu $menu) {
+            ->addItem('Database Settings', function (CliMenu $menu) {
                 $this->configureDatabase($menu);
             })
-            ->addItem('📂 ' . 'Output Settings', function (CliMenu $menu) {
+            ->addItem('Output Settings', function (CliMenu $menu) {
                 $this->configureOutput($menu);
             })
             ->addLineBreak()
-            ->addItem('▶️ Start Backup', function (CliMenu $menu) use ($parentMenu) {
+            ->addLineBreak('-')
+            ->addItem('Start Backup', function (CliMenu $menu) use ($parentMenu) {
                 if ($this->validateConfig()) {
                     $menu->close();
                     $parentMenu->close();
                     $this->executeBackup();
                 }
             })
-            ->addItem('⬅️ Back to Main Menu', function (CliMenu $menu) {
+            ->addItem('Back to Main Menu', function (CliMenu $menu) {
                 $menu->close();
             })
             ->build();
