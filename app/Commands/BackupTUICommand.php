@@ -38,10 +38,14 @@ class BackupTUICommand extends Command
             ->setWidth(80)
             ->setPadding(2, 4)
             ->setMarginAuto()
-            ->setBackgroundColour('23')
-            ->setForegroundColour('40')
+            ->setBackgroundColour('17')
+            ->setForegroundColour('136')
             ->setTitleSeparator('-')
             ->addLineBreak()
+            ->modifySelectableStyle(function ($style) {
+                $style->setSelectedMarker('↳')
+                    ->setUnselectedMarker(' ');
+            })
             ->addAsciiArt("
     ____             __                 __  ____
    / __ )____ ______/ /____  ______  _ / / / / /
@@ -86,6 +90,13 @@ class BackupTUICommand extends Command
             ->setWidth(80)
             ->setPadding(2, 4)
             ->setMarginAuto()
+            ->setBackgroundColour('17')
+            ->setForegroundColour('136')
+            ->setTitleSeparator('-')
+            ->modifySelectableStyle(function ($style) {
+                $style->setSelectedMarker('↳')
+                    ->setUnselectedMarker(' ');
+            })
             ->addStaticItem('Current Configuration:')
             ->addLineBreak()
             ->addStaticItem($statusItems)
@@ -133,7 +144,7 @@ class BackupTUICommand extends Command
         $this->newLine();
         $this->info('✅ Connection settings updated');
         $this->newLine();
-        sleep(1); 
+        sleep(1);
 
         $this->refreshConfigMenu($menu);
     }
