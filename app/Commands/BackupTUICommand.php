@@ -59,7 +59,7 @@ class BackupTUICommand extends Command
             ->addStaticItem('Select your database type:')
             ->addLineBreak('-')
             ->addLineBreak()
-            ->addItem(' MySQL Database', function (CliMenu $menu) {
+            ->addItem('MySQL Database', function (CliMenu $menu) {
                 $this->config['type'] = 'mysql';
                 $this->config['port'] = 3306;
                 $this->showConfigMenu($menu);
