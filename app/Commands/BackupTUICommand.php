@@ -118,6 +118,7 @@ class BackupTUICommand extends Command
             })
             ->addLineBreak()
             ->addLineBreak('-')
+            ->addLineBreak()
             ->addItem(' Start Backup', function (CliMenu $menu) use ($parentMenu) {
                 if ($this->validateConfig()) {
                     $menu->close();
