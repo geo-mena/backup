@@ -35,7 +35,7 @@ class BackupTUICommand extends Command
     {
         $menu = (new CliMenuBuilder)
             ->setTitle('DATABASE BACKUP UTILITY')
-            ->setWidth(70)
+            ->setWidth(80)
             ->setPadding(2, 4)
             ->setMarginAuto()
             ->setBackgroundColour('23')
@@ -83,7 +83,7 @@ class BackupTUICommand extends Command
 
         $configMenu = (new CliMenuBuilder)
             ->setTitle("⚙️ Configure {$this->config['type']} Backup")
-            ->setWidth(70)
+            ->setWidth(80)
             ->setPadding(2, 4)
             ->setMarginAuto()
             ->addStaticItem('Current Configuration:')
@@ -92,13 +92,13 @@ class BackupTUICommand extends Command
             ->addLineBreak()
             ->addStaticItem('Select an option to modify:')
             ->addLineBreak()
-            ->addItem('🌐 Connection Settings', function (CliMenu $menu) {
+            ->addItem('🚀 ' . 'Connection Settings', function (CliMenu $menu) {
                 $this->configureConnection($menu);
             })
-            ->addItem('🗄️ Database Settings', function (CliMenu $menu) {
+            ->addItem('📦 ' . 'Database Settings', function (CliMenu $menu) {
                 $this->configureDatabase($menu);
             })
-            ->addItem('📂 Output Settings', function (CliMenu $menu) {
+            ->addItem('📂 ' . 'Output Settings', function (CliMenu $menu) {
                 $this->configureOutput($menu);
             })
             ->addLineBreak()
@@ -177,7 +177,6 @@ class BackupTUICommand extends Command
 
     private function getConfigStatus(): string
     {
-
         $status = [];
         $status[] = "Host: " . ($this->config['host'] ?: '<not set>');
         $status[] = "Port: " . ($this->config['port'] ?: '<not set>');
