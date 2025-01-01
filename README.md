@@ -16,6 +16,47 @@ A robust and flexible command-line utility for backing up [MySQL](https://www.my
 
 ---
 
+## 📑 Table of Contents
+
+1. [✨ Features](#-features)
+
+    - [Support for multiple databases](#support-for-multiple-databases)
+    - [Advanced backup options](#advanced-backup-options)
+
+2. [🚀 Installation](#-installation)
+
+3. [📋 Requirements](#-requirements)
+
+4. [💻 Usage](#-usage)
+
+    - [PostgreSQL](#postgresql)
+    - [MySQL](#mysql)
+    - [MongoDB](#mongodb)
+
+5. [🖥️ Interactive Mode](#️-interactive-mode)
+
+    - [TUI Features](#tui-features)
+        - [Main Menu](#main-menu)
+        - [Configuration Sections](#configuration-sections)
+        - [Real-time display](#real-time-display-of)
+
+6. [🔧 Available Options](#-available-options)
+
+7. [📁 File Structure](#-file-structure)
+
+8. [🐳 Container Information](#-container-information)
+
+9. [⚠️ Important Notes](#️-important-notes)
+
+10. [🐛 Troubleshooting](#-troubleshooting)
+
+    - [Permission Error](#permission-error)
+    - [Connection Error](#connection-error)
+
+11. [📝 License](#-license)
+
+12. [✨ Contributing](#-contributing)
+
 ## ✨ Features
 
 Support for multiple databases:
@@ -116,6 +157,43 @@ docker compose run --rm app php application backup \
     --compress
 ```
 
+## 🖥️ Interactive Mode
+
+The utility includes a user-friendly Terminal User Interface (TUI) that makes it easier to configure and execute backups. To use the interactive mode:
+
+```bash
+docker compose run --rm app php application backup:tui
+```
+
+The TUI provides:
+
+-   Easy database type selection
+-   Interactive configuration menus
+-   Real-time validation
+-   Visual feedback
+-   Configuration preview
+-   Step-by-step guidance
+
+### TUI Features
+
+-   Main Menu:
+
+    -   Database type selection (MySQL, PostgreSQL, MongoDB)
+    -   Visual ASCII art interface
+    -   Color-coded options
+
+-   Configuration Sections:
+
+    -   Connection Settings
+    -   Database Settings
+    -   Output Settings
+
+-   Real-time display of:
+
+    -   Current configuration
+    -   Validation status
+    -   Process feedback
+
 ## 🔧 Available Options
 
 | Option       | Description                                  | Default Value         |
@@ -177,4 +255,5 @@ Verify that the host and port are accessible from the Docker container
 The **Database Backup Utility** is an open-source software licensed under the MIT license.
 
 ## ✨ Contributing
+
 Contributions are welcome! Please open an issue first to discuss any changes you'd like to make.
