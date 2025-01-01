@@ -46,7 +46,7 @@ A robust and flexible command-line utility for backing up [MySQL](https://www.my
 
 8. [🐳 Container Information](#-container-information)
 
-9. [⚠️ Important Notes](#️-important-notes)
+9. [📌 Important Notes](#️-important-notes)
 
 10. [🐛 Troubleshooting](#-troubleshooting)
 
@@ -236,7 +236,7 @@ The container includes:
 -   MySQL Client
 -   MongoDB Tools
 
-## ⚠️ Important Notes
+## 📌 Important Notes
 
 -   Compressed backups use gzip (.gz)
 -   Using environment variables for passwords is recommended in production
