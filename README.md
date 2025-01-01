@@ -4,12 +4,12 @@
     </p>
     <p>
     
-![Docker Badge](https://shields.io/badge/Docker-20.10.7-blue?logo=docker)
-![Laravel-zero Badge](https://shields.io/badge/Laravel%20Zero-11.36.1-blue?logo=laravel)
-![PHP Badge](https://shields.io/badge/PHP-8.2-blue?logo=php)
-![PostgreSQL Badge](https://shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
-![MySQL Badge](https://shields.io/badge/MySQL-8.0-blue?logo=mysql)
-![MongoDB Badge](https://shields.io/badge/MongoDB-5.0-blue?logo=mongodb)
+![Docker Badge](https://shields.io/badge/Docker-20.10.7-2496ED?logo=docker)
+![Laravel-zero Badge](https://shields.io/badge/Laravel%20Zero-11.36.1-FF2D20?logo=laravel)
+![PHP Badge](https://shields.io/badge/PHP-8.2-777BB4?logo=php)
+![PostgreSQL Badge](https://shields.io/badge/PostgreSQL-16-336791?logo=postgresql)
+![MySQL Badge](https://shields.io/badge/MySQL-8.0-4479A1?logo=mysql)
+![MongoDB Badge](https://shields.io/badge/MongoDB-5.0-47A248?logo=mongodb)
 </div>
 
 A robust and flexible command-line utility for backing up [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org), and [MongoDB](https://www.mongodb.com) databases. Built with simplicity and power in mind, this tool offers a streamlined approach to database backups while providing advanced features for more complex requirements.
