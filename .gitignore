@@ -1,7 +1,9 @@
 /vendor
-/.idea
-/.vscode
-/.vagrant
-.phpunit.result.cache
 .env
+.env.*
+!.env.example
+.phpunit.result.cache
+coverage
+storage/*.key
+.DS_Store
 /storage

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace Geomx\DatabaseBackup\Commands;
 
 use Exception;
 use LaravelZero\Framework\Commands\Command;

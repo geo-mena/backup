@@ -8,25 +8,74 @@ define('LARAVEL_START', microtime(true));
 | Register The Auto Loader
 |--------------------------------------------------------------------------
 |
-| Composer provides a convenient, automatically generated class loader
-| for our application. We just need to utilize it! We'll require it
-| into the script here so that we do not have to worry about the
-| loading of any our classes "manually". Feels great to relax.
+| We need to modify the autoloader path to work both when installed
+| globally and locally. We'll check multiple possible locations.
 |
 */
 
-$autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ?  __DIR__.'/vendor/autoload.php' : __DIR__.'/../../autoload.php';
+$possibleAutoloaderPaths = [
+    // Local development
+    __DIR__ . '/vendor/autoload.php',
+    // Global installation via composer global require
+    __DIR__ . '/../../autoload.php',
+    // Installed as a dependency in another project
+    __DIR__ . '/../../../vendor/autoload.php',
+];
 
-$app = require_once __DIR__.'/bootstrap/app.php';
+$autoloader = null;
+foreach ($possibleAutoloaderPaths as $path) {
+    if (file_exists($path)) {
+        $autoloader = require $path;
+        break;
+    }
+}
+
+if ($autoloader === null) {
+    fwrite(
+        STDERR,
+        'You need to set up the project dependencies using Composer:' . PHP_EOL . PHP_EOL .
+            '    composer install' . PHP_EOL . PHP_EOL
+    );
+    die(1);
+}
 
 /*
 |--------------------------------------------------------------------------
-| Run The Artisan Application
+| Bootstrap The Application
 |--------------------------------------------------------------------------
 |
-| When we run the console application, the current CLI command will be
-| executed in this console and the response sent back to a terminal
-| or another output device for the developers. Here goes nothing!
+| We'll load the application bootstrap file from the correct location
+| depending on how the package is installed.
+|
+*/
+
+$bootstrapPaths = [
+    __DIR__ . '/bootstrap/app.php',
+    __DIR__ . '/../bootstrap/app.php',
+];
+
+$app = null;
+foreach ($bootstrapPaths as $path) {
+    if (file_exists($path)) {
+        $app = require_once $path;
+        break;
+    }
+}
+
+if ($app === null) {
+    fwrite(
+        STDERR,
+        'Could not find the bootstrap/app.php file.' . PHP_EOL
+    );
+    die(1);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Handle the incoming command and generate the response.
 |
 */
 
@@ -42,9 +91,7 @@ $status = $kernel->handle(
 | Shutdown The Application
 |--------------------------------------------------------------------------
 |
-| Once Artisan has finished running, we will fire off the shutdown events
-| so that any final work may be done by the application before we shut
-| down the process. This is the last thing to happen to the request.
+| Gracefully shutdown the application.
 |
 */
 
