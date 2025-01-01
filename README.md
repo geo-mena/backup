@@ -53,9 +53,15 @@ A robust and flexible command-line utility for backing up [MySQL](https://www.my
     - [Permission Error](#permission-error)
     - [Connection Error](#connection-error)
 
-11. [📝 License](#-license)
+11. [📂 Project Structure](#-project-structure)
 
-12. [✨ Contributing](#-contributing)
+    - [Directory Layout](#directory-layout)
+    - [Key Files](#key-files)
+    - [Key Directories](#key-directories)
+
+12. [📝 License](#-license)
+
+13. [✨ Contributing](#-contributing)
 
 ## ✨ Features
 
@@ -249,6 +255,47 @@ chmod -R 755 storage
 ### Connection Error
 
 Verify that the host and port are accessible from the Docker container
+
+## 📂 Project Structure
+
+### Directory Layout
+
+```bash
+backup-utility/
+├── app/
+│   ├── Commands/
+│   │   ├── BackupCommand.php
+│   │   └── BackupTUICommand.php
+│   └── Providers/
+├── config/
+├── docker/
+│   └── php/
+│       └── Dockerfile
+├── storage/
+│   └── backups/
+├── tests/
+├── composer.json
+└── docker-compose.yml
+```
+
+### Key Files
+
+-   `app/Commands/BackupCommand.php`: Core backup functionality implementation
+-   `app/Commands/BackupTUICommand.php`: Interactive TUI implementation
+-   `docker/php/Dockerfile`: Docker container configuration
+-   `docker-compose.yml`: Docker services configuration
+-   `composer.json`: PHP dependencies and project configuration
+-   `config/backup.php`: Backup configuration settings
+-   `storage/backups/`: Default backup storage directory
+-   `tests/`: Test suite directory
+
+### Key Directories
+
+-   `app/`: Contains the main application code
+-   `config/`: Configuration files
+-   `docker/`: Docker-related files
+-   `storage/`: Storage for backups and logs
+-   `tests/`: Test files
 
 ## 📝 License
 
