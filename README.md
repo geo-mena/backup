@@ -1,13 +1,16 @@
-<p align="center">
-    <h1 align="center">Database Backup Utility </h1>
-</p>
-
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://github.com/laravel-zero/laravel-zero/actions/workflows/tests.yml/badge.svg" alt="Build Status" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License" /></a>
-</p>
+<div align="center">
+    <p>
+        <h1 align="center">Database Backup Utility </h1>
+    </p>
+    <p>
+    
+![Docker Badge](https://shields.io/badge/Docker-20.10.7-blue?logo=docker)
+![Laravel-zero Badge](https://shields.io/badge/Laravel%20Zero-11.36.1-blue?logo=laravel)
+![PHP Badge](https://shields.io/badge/PHP-8.2-blue?logo=php)
+![PostgreSQL Badge](https://shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
+![MySQL Badge](https://shields.io/badge/MySQL-8.0-blue?logo=mysql)
+![MongoDB Badge](https://shields.io/badge/MongoDB-5.0-blue?logo=mongodb)
+</div>
 
 A robust and flexible command-line utility for backing up [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org), and [MongoDB](https://www.mongodb.com) databases. Built with simplicity and power in mind, this tool offers a streamlined approach to database backups while providing advanced features for more complex requirements.
 
@@ -17,9 +20,9 @@ A robust and flexible command-line utility for backing up [MySQL](https://www.my
 
 Support for multiple databases:
 
--   MySQL/MariaDB
--   PostgreSQL
--   MongoDB
+-   [MySQL](https://www.mysql.com)
+-   [PostgreSQL](https://www.postgresql.org)
+-   [MongoDB](https://www.mongodb.com)
 
 Advanced backup options:
 
